@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.util.Log
+import android.widget.Button
 import android.widget.TextView
+import java.util.*
 
 class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
@@ -16,12 +18,19 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
         tts = TextToSpeech(this, this)
 
+        findViewById<Button>(R.id.btnPlay).setOnClickListener { speak() }
+    }
+
+    private fun speak(){
         var tvText = findViewById<TextView>(R.id.textView).text.toString()
+
+        tts!!.speak(tvText, TextToSpeech.QUEUE_FLUSH, null, "")
     }
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS){
-            findViewById<TextView>(R.id.textView).text = "Listo!"
+            findViewById<TextView>(R.id.textView).text = "Hello Kotlin!"
+            tts!!.setLanguage(Locale.US)
         } else {
             findViewById<TextView>(R.id.textView).text = "No disponible :("
         }

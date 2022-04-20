@@ -3,7 +3,6 @@ package com.avila.apps.courses.hellokotlin
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.speech.tts.TextToSpeech
-import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import java.util.*
@@ -22,17 +21,17 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     }
 
     private fun speak(){
-        var tvText = findViewById<TextView>(R.id.textView).text.toString()
+        var tvText = findViewById<TextView>(R.id.etMessage).text.toString()
 
         tts!!.speak(tvText, TextToSpeech.QUEUE_FLUSH, null, "")
     }
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS){
-            findViewById<TextView>(R.id.textView).text = "Hello Kotlin!"
-            tts!!.setLanguage(Locale.US)
+            findViewById<TextView>(R.id.tvStatus).text = "Hello Kotlin!"
+            tts!!.language = Locale("ES")
         } else {
-            findViewById<TextView>(R.id.textView).text = "No disponible :("
+            findViewById<TextView>(R.id.tvStatus).text = "No disponible :("
         }
 
     }

@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.speech.tts.TextToSpeech
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
+import com.google.android.material.snackbar.Snackbar
 import java.util.*
 
 class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
@@ -23,16 +25,29 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     private fun speak(){
         var tvText = findViewById<TextView>(R.id.etMessage).text.toString()
 
+        if (tvText.isEmpty()){
+            Toast.makeText(this, "Ingresar un mensaje", Toast.LENGTH_SHORT).show()
+        }
+
         tts!!.speak(tvText, TextToSpeech.QUEUE_FLUSH, null, "")
     }
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS){
-            findViewById<TextView>(R.id.tvStatus).text = "Hello Kotlin!"
+            findViewById<TextView>(R.id.tvStatus).text = "¡Listo!"
             tts!!.language = Locale("ES")
         } else {
             findViewById<TextView>(R.id.tvStatus).text = "No disponible :("
         }
 
+    }
+
+    override fun onDestroy() {
+        if (tts != null){
+            tts!!.stop()
+            tts!!.shutdown()
+        }
+
+        super.onDestroy()
     }
 }

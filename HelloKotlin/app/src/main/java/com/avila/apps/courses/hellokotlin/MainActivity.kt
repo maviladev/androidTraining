@@ -6,12 +6,11 @@ import android.speech.tts.TextToSpeech
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
-import com.google.android.material.snackbar.Snackbar
 import java.util.*
 
 class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
-    var tts: TextToSpeech? = null
+    private var tts: TextToSpeech? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -23,10 +22,10 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
     }
 
     private fun speak(){
-        var tvText = findViewById<TextView>(R.id.etMessage).text.toString()
+        val tvText = findViewById<TextView>(R.id.etMessage).text.toString()
 
         if (tvText.isEmpty()){
-            Toast.makeText(this, "Ingresar un mensaje", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, getString(R.string.err_empty_msg), Toast.LENGTH_SHORT).show()
         }
 
         tts!!.speak(tvText, TextToSpeech.QUEUE_FLUSH, null, "")
@@ -34,10 +33,10 @@ class MainActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
 
     override fun onInit(status: Int) {
         if (status == TextToSpeech.SUCCESS){
-            findViewById<TextView>(R.id.tvStatus).text = "¡Listo!"
+            findViewById<TextView>(R.id.tvStatus).text = getString(R.string.tts_active)
             tts!!.language = Locale("ES")
         } else {
-            findViewById<TextView>(R.id.tvStatus).text = "No disponible :("
+            findViewById<TextView>(R.id.tvStatus).text = getString(R.string.tts_no_active)
         }
 
     }

@@ -30,5 +30,6 @@ fun showPersons(vararg persons: String) {
         "Tony" -> println("Es tony!")
         "Julito" -> println("Es Julito!")
         else -> println(persons[index])
-    } 
+    }
 }
+

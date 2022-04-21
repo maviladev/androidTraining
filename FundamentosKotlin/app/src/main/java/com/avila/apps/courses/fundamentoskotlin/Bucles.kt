@@ -12,7 +12,14 @@ fun showPersons(p1: String, p2: String, p3:String){
     println(p3)
 }
 
-fun showPersons(vararg persons: String){
-    println(persons[0])
-    println(persons[1])
+fun showPersons(vararg persons: String) {
+    newTopic("For")
+    for (person in persons)println(person)
+
+    newTopic("While")
+    var index = 0
+    while (index < persons.size){
+        println(persons[index])
+        index++
+    }
 }

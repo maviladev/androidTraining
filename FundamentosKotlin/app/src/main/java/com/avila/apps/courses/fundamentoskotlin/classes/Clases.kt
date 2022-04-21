@@ -21,8 +21,13 @@ fun main() {
     println("Privado ? ${smartPhone.isPrivate}")
 
     newTopic("Data classes")
-    val myUser = User(1,"Marcos","Avila",1)
+    val myUser = User(1,"Marcos","Avila", Group.FRIEND.ordinal)
+    val bro = myUser.copy(0, "Ivan")
+    val workPal = myUser.copy(3, "Peter", "Chill", Group.WORK.ordinal)
+
     println(myUser)
+    println(bro)
+    println(workPal)
 
     println(myUser.component3())
 }

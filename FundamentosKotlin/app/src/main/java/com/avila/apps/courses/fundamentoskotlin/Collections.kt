@@ -44,8 +44,24 @@ fun main() {
 
     usersSelectedList.add(myUser)
     usersSelectedList.add(myUser)
-    usersSelectedList.add(myUser)
-    usersSelectedList.add(myUser)
     println(usersSelectedList)
+
+    newTopic("Map")
+
+    val usersMap = mutableMapOf<Int, User>()
+    println(usersMap)
+    usersMap.put(myUser.id.toInt(), myUser)
+    usersMap.put(myUser.id.toInt(), myUser)
+    println(usersMap)
+
+    usersMap.put(workPal.id.toInt(), workPal)
+    println(usersMap)
+
+    usersMap.remove(2)
+    println(usersMap)
+    println(usersMap.isEmpty())
+    println(usersMap.containsKey(1))
+    println(usersMap.keys)
+    println(usersMap.values)
 
 }

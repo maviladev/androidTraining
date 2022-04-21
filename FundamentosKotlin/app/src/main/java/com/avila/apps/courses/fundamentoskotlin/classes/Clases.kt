@@ -20,4 +20,9 @@ fun main() {
     smartPhone.showNumber()
     println("Privado ? ${smartPhone.isPrivate}")
 
+    newTopic("Data classes")
+    val myUser = User(1,"Marcos","Avila",1)
+    println(myUser)
+
+    println(myUser.component3())
 }

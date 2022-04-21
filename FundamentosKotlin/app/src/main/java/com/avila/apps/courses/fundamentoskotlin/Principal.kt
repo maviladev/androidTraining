@@ -8,6 +8,14 @@ fun main(){
     println(a)
     var b = 2
     println("b = $b")
+
+    var objNull: String?
+    objNull = null
+
+    var anyObj: Any?
+    anyObj = null
+    anyObj = "Hi"
+
 }
 
 fun newTopic(topic: String){

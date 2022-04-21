@@ -19,8 +19,8 @@ fun main(){
 }
 
 fun newTopic(topic: String){
-    println(topic)
-    print(topic)
+    //println(topic)
+    //print(topic)
 
     print("\n=================== $topic ========================\n")
 }

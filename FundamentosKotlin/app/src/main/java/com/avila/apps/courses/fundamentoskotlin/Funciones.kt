@@ -16,6 +16,11 @@ fun main() {
 
     println("$a + $c = ${sum(a,c)}")
     println("$a + $c = ${sum(a,c enableAbs true)}")
+
+    newTopic("SobreCarga")
+    showProduct("Soda", "10%")
+    showProduct("Pan")
+    showProduct("Jugo", validity = "2 por cliente")
 }
 
 private fun sayHello() {
@@ -29,3 +34,7 @@ fun sum(a: Int, b: Int): Int {
 //fun sum(a: Int, b: Int) = a + b
 
 infix fun Int.enableAbs(enable: Boolean) = if(enable)abs(this) else this
+
+fun showProduct(name:String, promo: String = "Sin promocion", validity: String = "agotar existencias"){
+    println("$name = $promo hasta $validity")
+}

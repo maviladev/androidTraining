@@ -2,5 +2,5 @@
     <string name="app_name">Layouts</string>
     <string name="title_linear">Linear</string>
     <string name="title_frame">Frame</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="title_constraint">Constraint</string>
 </resources>

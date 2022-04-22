@@ -23,7 +23,7 @@ class FrameFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val dashboardViewModel =
-            ViewModelProvider(this).get(DashboardViewModel::class.java)
+            ViewModelProvider(this).get(FrameViewModel::class.java)
 
         _binding = FragmentFrameBinding.inflate(inflater, container, false)
         val root: View = binding.root

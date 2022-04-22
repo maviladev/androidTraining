@@ -13,9 +13,9 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.avila.apps.courses.layouts.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:name="com.avila.apps.courses.layouts.ui.dashboard.FrameFragment"
+        android:label="@string/title_frame"
+        tools:layout="@layout/fragment_frame" />
 
     <fragment
         android:id="@+id/navigation_notifications"

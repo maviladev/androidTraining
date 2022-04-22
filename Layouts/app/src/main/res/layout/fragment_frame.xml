@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.dashboard.FrameFragment"
     android:background="@android:color/holo_red_light"
+    android:padding="16dp"
     >
 
     <ImageView

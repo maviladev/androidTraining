@@ -11,4 +11,15 @@
 
     <include layout="@layout/content_scrolling" />
 
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottom_app_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        app:navigationIcon="@drawable/ic_menu"
+        app:menu="@menu/menu_scrolling"
+        style="@style/Widget.MaterialComponents.BottomAppBar.Colored"
+        app:hideOnScroll="true"
+        />
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

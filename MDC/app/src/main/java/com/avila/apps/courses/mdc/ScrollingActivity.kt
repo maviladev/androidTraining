@@ -19,7 +19,9 @@ class ScrollingActivity : AppCompatActivity() {
         binding = ActivityScrollingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        
+
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

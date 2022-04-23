@@ -39,6 +39,10 @@ class ScrollingActivity : AppCompatActivity() {
                 binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
             }
         }
+
+        binding.bottomAppBar.setOnClickListener {
+            Snackbar.make(binding.root, R.string.black_friday, Snackbar.LENGTH_LONG).setAnchorView(binding.fab).show()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

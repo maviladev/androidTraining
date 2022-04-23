@@ -7,6 +7,7 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import com.avila.apps.courses.mdc.databinding.ActivityScrollingBinding
 import com.google.android.material.bottomappbar.BottomAppBar
 
@@ -43,6 +44,12 @@ class ScrollingActivity : AppCompatActivity() {
         binding.bottomAppBar.setOnClickListener {
             Snackbar.make(binding.root, R.string.black_friday, Snackbar.LENGTH_LONG).setAnchorView(binding.fab).show()
         }
+
+        binding.content.btnSkip.setOnClickListener {
+            binding.content.cvAd.visibility = View.GONE
+        }
+
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

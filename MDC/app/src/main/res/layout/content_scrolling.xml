@@ -16,6 +16,7 @@
         android:layout_marginBottom="?attr/actionBarSize"
         >
         <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cvAd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/common_padding_min"
@@ -23,7 +24,7 @@
             android:layout_marginEnd="@dimen/common_padding_min"
             android:clickable="true"
             android:focusable="true"
-            android:visibility="gone"
+            android:visibility="visible"
             >
 
             <androidx.constraintlayout.widget.ConstraintLayout

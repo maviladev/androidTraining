@@ -1,5 +1,6 @@
 package com.avila.apps.courses.mdc
 
+import android.graphics.Color
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import com.google.android.material.appbar.CollapsingToolbarLayout
@@ -91,6 +92,17 @@ class ScrollingActivity : AppCompatActivity() {
                 */
 
             }
+        }
+
+        binding.content.toggle.addOnButtonCheckedListener { group, checkedId, isChecked ->
+            binding.content.root.setBackgroundColor(
+                when(checkedId){
+                    R.id.btnRed -> Color.RED
+                    R.id.btnBlue -> Color.BLUE
+                    R.id.btnGreen -> Color.GREEN
+                    else -> Color.WHITE
+                }
+            )
         }
 
     }

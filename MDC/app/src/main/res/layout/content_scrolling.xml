@@ -131,6 +131,7 @@
                     />
 
                 <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/til"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:hint="@string/image_url"
@@ -153,7 +154,30 @@
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/tilPassword"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/card_contrasena"
+                    app:endIconMode="password_toggle"
+                    android:enabled="false"
+                    android:layout_marginTop="@dimen/common_padding_default"
+                    app:layout_constraintStart_toStartOf="@id/tvTitleAlt"
+                    app:layout_constraintEnd_toEndOf="@id/tvTitleAlt"
+                    app:layout_constraintTop_toBottomOf="@id/til"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etPassword"
+                        android:importantForAccessibility="no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textPassword"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
 
 

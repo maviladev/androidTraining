@@ -78,8 +78,18 @@ class ScrollingActivity : AppCompatActivity() {
         }
 
         binding.content.etUrl.onFocusChangeListener = View.OnFocusChangeListener { view, focused ->
+            val url = binding.content.etUrl.text.toString()
             if (!focused){
-                Toast.makeText(this, "Foco perdido", Toast.LENGTH_LONG).show()
+                binding.content.imgCover.loadUrl(url)
+
+                /*
+                Glide.with(this)
+                    .load(url)
+                    .diskCacheStrategy(DiskCacheStrategy.RESOURCE)
+                    .centerCrop()
+                    .into(binding.content.imgCover)
+                */
+
             }
         }
 

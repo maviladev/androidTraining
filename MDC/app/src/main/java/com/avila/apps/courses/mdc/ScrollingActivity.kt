@@ -77,6 +77,12 @@ class ScrollingActivity : AppCompatActivity() {
             binding.content.tilPassword.isEnabled = !binding.content.tilPassword.isEnabled
         }
 
+        binding.content.etUrl.onFocusChangeListener = View.OnFocusChangeListener { view, focused ->
+            if (!focused){
+                Toast.makeText(this, "Foco perdido", Toast.LENGTH_LONG).show()
+            }
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

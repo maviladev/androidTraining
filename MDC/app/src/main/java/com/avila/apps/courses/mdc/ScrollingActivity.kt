@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
+import android.widget.Toast
 import com.avila.apps.courses.mdc.databinding.ActivityScrollingBinding
 import com.google.android.material.bottomappbar.BottomAppBar
 
@@ -49,6 +50,15 @@ class ScrollingActivity : AppCompatActivity() {
             binding.content.cvAd.visibility = View.GONE
         }
 
+
+        binding.content.btnBuy.setOnClickListener {
+            Snackbar.make(it, R.string.black_friday, Snackbar.LENGTH_LONG)
+                .setAnchorView(binding.fab)
+                .setAction(R.string.card_btn_buy, {
+                    Toast.makeText(this, R.string.black_friday, Toast.LENGTH_SHORT).show()
+                })
+                .show()
+        }
 
     }
 

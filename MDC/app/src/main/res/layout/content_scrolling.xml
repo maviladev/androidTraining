@@ -107,6 +107,7 @@
                 android:layout_height="wrap_content">
                 
                 <ImageView
+                    android:id="@+id/img_cover"
                     android:layout_width="0dp"
                     android:layout_height="@dimen/card_img_cover_height"
                     android:importantForAccessibility="no"
@@ -114,8 +115,44 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <TextView
+                    android:id="@+id/tvTitleAlt"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/black_friday"
+                    android:textAppearance="?attr/textAppearanceHeadline5"
+                    android:layout_margin="@dimen/common_padding_default"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/img_cover"
 
                     />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/image_url"
+                    android:layout_marginTop="@dimen/common_padding_default"
+                    app:helperText="@string/card_required"
+                    app:endIconMode="clear_text"
+                    app:layout_constraintStart_toStartOf="@id/tvTitleAlt"
+                    app:layout_constraintEnd_toEndOf="@id/tvTitleAlt"
+                    app:layout_constraintTop_toBottomOf="@id/tvTitleAlt"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                    >
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/etUrl"
+                        android:importantForAccessibility="no"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:inputType="textUri"
+                        />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
                 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

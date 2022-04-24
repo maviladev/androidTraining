@@ -1,9 +1,11 @@
 package com.avila.apps.courses.lifecycle
 
+import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.button.MaterialButton
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,7 +20,9 @@ class MainActivity : AppCompatActivity() {
         Log.i(TAG, "onCreate")
 
 
-
+        findViewById<MaterialButton>(R.id.btnCheck).setOnClickListener {
+            startActivity(Intent(this, Dialog::class.java))
+        }
 
     }
 

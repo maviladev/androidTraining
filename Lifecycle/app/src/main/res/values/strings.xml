@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Lifecycle</string>
+    <string name="dialog_verified_acc">Cuenta Verificada</string>
 </resources>

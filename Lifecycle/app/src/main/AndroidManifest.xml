@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Lifecycle">
         <activity
+            android:name=".Dialog"
+            android:exported="false"
+            android:theme="@style/Theme.MaterialComponents.DayNight.Dialog"/>
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

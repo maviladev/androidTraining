@@ -10,13 +10,20 @@ import androidx.navigation.ui.setupWithNavController
 import androidx.room.Room
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.xfactor.noted.database.AppDatabase
+import com.xfactor.noted.database.migrations.MIGRATION_1_2
 
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val db = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "noted-db").allowMainThreadQueries().build()
+        val db = Room
+                    .databaseBuilder(applicationContext,
+                                AppDatabase::class.java,
+                        "noted-db")
+                    .allowMainThreadQueries()
+                    .addMigrations(MIGRATION_1_2)
+                    .build()
 
         // Setting ActionBar logo
         supportActionBar?.setDisplayShowHomeEnabled(true)

@@ -1,7 +1,6 @@
 package com.xfactor.noted
 
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -12,23 +11,21 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.xfactor.noted.database.AppDatabase
 import com.xfactor.noted.database.migrations.MIGRATION_1_2
 
+lateinit var appDatabase: AppDatabase
+
 class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val db = Room
-                    .databaseBuilder(applicationContext,
-                                AppDatabase::class.java,
-                        "noted-db")
-                    .allowMainThreadQueries()
-                    .addMigrations(MIGRATION_1_2)
-                    .build()
+        appDatabase = Room.databaseBuilder(applicationContext, AppDatabase::class.java, "noted-database").allowMainThreadQueries().addMigrations(
+            MIGRATION_1_2).build()
 
         // Setting ActionBar logo
         supportActionBar?.setDisplayShowHomeEnabled(true)
         supportActionBar?.setLogo(R.drawable.ic_logo)
         supportActionBar?.setDisplayUseLogoEnabled(true)
+
 
         setContentView(R.layout.activity_main)
 
@@ -40,20 +37,26 @@ class MainActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-        val listDAO = db.listDAO()
-        val lists: List<com.xfactor.noted.database.List> = listDAO.getAll()
+        //val listDAO = db.listDAO()
+        //val listItemDao = db.listItemDAO()
 
-        Log.e("Lists", lists.toString())
+        //Log.e("Lists", listDAO.getAll().toString())
+        //Log.e("ListItems", listItemDao.getAll().toString())
 
-        val lastId = if (lists.isEmpty()) 0 else lists.last().uid + 1
+        //val lastId = if (lists.isEmpty()) 0 else lists.last().uid + 1
 
-        listDAO.insertAll(com.xfactor.noted.database.List(lastId, "Test List $lastId"))
+        //listItemDao.insertAll(ListItem(uid=3, listId = listDAO.getAll()[0].uid, value = "Test Item!"))
 
-        Log.e("Lists", listDAO.getAll().toString())
+        //Log.e("Lists", listDAO.getListWithListItems()[0].ListItems.toString())
+        //Log.e("ListItems", listItemDao.getAll().toString())
 
-        listDAO.delete(lists[0])
+        //listDAO.delete(lists[0])
 
-        Log.e("Lists", listDAO.getAll().toString())
+        //Log.e("Lists", listDAO.getAll().toString())
+
+
+
+
     }
 }
 

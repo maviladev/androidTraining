@@ -4,9 +4,11 @@ import androidx.room.Embedded
 import androidx.room.Relation
 
 
-data class ListWithListItems(
-
+data class ListWithListItems (
     @Embedded val list: List,
-    @Relation(parentColumn = "uid", entityColumn = "uid")
+    @Relation (
+        parentColumn = "uid",
+        entityColumn = "listId"
+    )
     val ListItems: kotlin.collections.List<ListItem>
 )

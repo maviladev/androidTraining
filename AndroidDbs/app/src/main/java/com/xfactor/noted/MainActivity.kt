@@ -45,7 +45,9 @@ class MainActivity : AppCompatActivity() {
 
         Log.e("Lists", lists.toString())
 
-        listDAO.insertAll(com.xfactor.noted.database.List(lists.last().uid+1,"Test List"))
+        val lastId = if (lists.isEmpty()) 0 else lists.last().uid + 1
+
+        listDAO.insertAll(com.xfactor.noted.database.List(lastId, "Test List $lastId"))
 
         Log.e("Lists", listDAO.getAll().toString())
 

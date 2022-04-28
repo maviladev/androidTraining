@@ -11,11 +11,11 @@ import com.xfactor.noted.getLists
 
 class NewlistViewModel : ViewModel() {
 
-    private val lastId = getLists().last().list.uid
-    private val lastElementId = getListItems().last().uid
+    private val lastId = if(getLists().size == 0) 1 else getLists().last().list.uid + 1
+    private val lastElementId = if (getListItems().size == 0) 1 else getListItems().last().uid + 1
 
     private var _listItem = MutableLiveData<ListWithListItems>().apply {
-        value = ListWithListItems(com.xfactor.noted.database.List(lastId + 1, "Example title"), mutableListOf())
+        value = ListWithListItems(com.xfactor.noted.database.List(lastId, "Example title"), mutableListOf())
     }
     var listItem: LiveData<ListWithListItems> = _listItem
     fun setTitle(title:String) {
@@ -27,7 +27,7 @@ class NewlistViewModel : ViewModel() {
         _listItem.postValue(
             ListWithListItems(com.xfactor.noted.database.List(currentVal.list.uid, currentVal.list.title), elements.plus(
             ListItem(
-            lastElementId + 1, currentVal.list.uid, item)
+            lastElementId, currentVal.list.uid, item)
         ))
         )
         Log.e("list uid", currentVal.list.uid.toString())

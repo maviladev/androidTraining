@@ -12,4 +12,7 @@ interface ListItemDao {
 
     @Delete
     fun delete(listitem: com.xfactor.noted.database.ListItem)
+
+    @Update
+    fun update(listitem: ListItem)
 }

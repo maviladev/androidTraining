@@ -29,7 +29,7 @@ fun updateStatus() {
 
 class ListContainerFragment : Fragment() {
 
-    private var adapter = ListsAdapter(getLists());
+    private var adapter = ListsAdapter(getFavoritesList());
 
     override fun onCreateView(
         inflater: LayoutInflater,
